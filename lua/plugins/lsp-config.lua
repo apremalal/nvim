@@ -17,7 +17,7 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-    --  dartls = {},
+      dartls = {},
       },
     },
     config=function()
