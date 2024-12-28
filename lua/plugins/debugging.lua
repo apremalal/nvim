@@ -1,6 +1,7 @@
 return {
   "mfussenegger/nvim-dap",
   dependencies = {
+    "nvim-neotest/nvim-nio",
     "theHamsta/nvim-dap-virtual-text",
     "rcarriga/nvim-dap-ui",
     "Pocco81/DAPInstall.nvim",
@@ -31,27 +32,6 @@ return {
       command = 'flutter',
       args = {'debug_adapter'}
     }
-    dap.configurations.dart = {
-      {
-        type = "dart",
-        request = "launch",
-        name = "Launch dart",
-        dartSdkPath ="/Users/anu/programs/flutter/bin/dart", -- ensure this is correct 
-        flutterSdkPath = "/Users/anu/programs/flutter/bin/flutter",                  -- ensure this is correct
-        program = "${workspaceFolder}/lib/main.dart",     -- ensure this is correct
-        cwd = "${workspaceFolder}",
-      },
-      {
-        type = "flutter",
-        request = "launch",
-        name = "Launch flutter",
-        dartSdkPath = "/Users/anu/programs/flutter/bin/dart", -- ensure this is correct
-        flutterSdkPath = "/Users/anu/programs/flutter/bin/flutter",             -- ensure this is correct
-        program = "${workspaceFolder}/lib/main.dart",     -- ensure this is correct
-        cwd = "${workspaceFolder}",
-      }
-    }
-
     vim.keymap.set('n', '<leader>dt', dap.toggle_breakpoint, {})
     vim.keymap.set('n', '<leader>dc', dap.continue, {})
   end
