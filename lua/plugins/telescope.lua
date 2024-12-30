@@ -8,9 +8,14 @@ return
       vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
       vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+      vim.keymap.set('n', '<leader>fs', builtin.builtin, {})
+      vim.keymap.set('n', '<leader>fw', builtin.grep_string, {desc = 'Grep word under cursor'})
+      vim.keymap.set('n', '<leader>fk', builtin.keymaps, {})
+      vim.keymap.set('n', '<leader>fr', builtin.resume, {desc = 'Resume search'})
+      vim.keymap.set('n', '<leader>fn', function() builtin.find_files({cwd = '~/.config/nvim'}) end, {desc = 'Find nvim config'}) 
     end
   },
-    {
+    { 
       "nvim-telescope/telescope-ui-select.nvim",
       config= function()
 

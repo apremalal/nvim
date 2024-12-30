@@ -31,5 +31,20 @@ end)
 
 vim.opt.breakindent = true
 vim.opt.undofile = true
+vim.opt.number = true
+vim.opt.mouse = 'a'
+
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev,{desc = 'Go to previous diagnostic'})
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next,{desc = 'Go to diagnostic'})
+
+-- Highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+desc = "Highlight on yank",
+group = vim.api.nvim_create_augroup("HighlightOnYank",{ clear = true }),
+callback = function()
+  vim.highlight.on_yank()
+end
+})
+
 require("lazy").setup("plugins")
 
