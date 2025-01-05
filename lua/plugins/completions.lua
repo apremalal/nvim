@@ -4,7 +4,7 @@ return {
 	},
 	{ -- Autocompletion
 		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
+		--		event = { "InsertEnter" },
 		dependencies = {
 			-- Snippet Engine & its associated nvim-cmp source
 			{
@@ -37,13 +37,13 @@ return {
 			--  into multiple repos for maintenance purposes.
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
 		},
 		config = function()
 			-- See `:help cmp`
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 			luasnip.config.setup({})
-
 			cmp.setup({
 				snippet = {
 					expand = function(args)
@@ -69,7 +69,7 @@ return {
 					-- Accept ([y]es) the completion.
 					--  This will auto-import if your LSP supports it.
 					--  This will expand snippets if the LSP sent a snippet.
-					["<C-y>"] = cmp.mapping.confirm({ select = true }),
+					["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
 
 					-- If you prefer more traditional completion keymaps,
 					-- you can uncomment the following lines
@@ -114,6 +114,24 @@ return {
 					{ name = "luasnip" },
 					{ name = "path" },
 				},
+			})
+			-- `/` cmdline setup.
+			cmp.setup.cmdline("/", {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = {
+					{ name = "buffer" },
+				},
+			})
+
+			-- `:` cmdline setup.
+			cmp.setup.cmdline(":", {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = cmp.config.sources({
+					{ name = "path" },
+				}, {
+					{ name = "cmdline" },
+				}),
+				matching = { disallow_symbol_nonprefix_matching = false },
 			})
 		end,
 	},

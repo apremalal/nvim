@@ -31,6 +31,7 @@ end)
 
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldlevel = 99
 
 vim.opt.breakindent = true
 vim.opt.undofile = true

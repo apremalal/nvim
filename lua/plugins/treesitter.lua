@@ -16,7 +16,6 @@ return {
 					"heex",
 					"javascript",
 					"html",
-					"dart",
 					"python",
 				},
 				highlight = { enable = true },

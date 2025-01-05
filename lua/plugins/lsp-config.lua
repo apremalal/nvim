@@ -238,9 +238,9 @@ return {
 					end,
 				},
 			})
-			local dartls = require("lspconfig")["dartls"]
-			dartls.capabilities = vim.tbl_deep_extend("force", {}, capabilities, dartls.capabilities or {})
-			dartls.setup(dartls)
+			--	local dartls = require("lspconfig")["dartls"]
+			--	dartls.capabilities = vim.tbl_deep_extend("force", {}, capabilities, dartls.capabilities or {})
+			--	dartls.setup(dartls)
 		end,
 	},
 	-- Highlight todo, notes, etc in comments
