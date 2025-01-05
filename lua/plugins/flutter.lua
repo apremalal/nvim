@@ -7,6 +7,10 @@ return {
 			"stevearc/dressing.nvim", -- optional for vim.ui.select
 		},
 		config = function()
+			local capabilities = require("blink.cmp").get_lsp_capabilities()
+			local lspconfig = require("lspconfig")
+
+			lspconfig["dartls"].setup({ capabilities = capabilities })
 			require("flutter-tools").setup({
 				widget_guides = {
 					enabled = true,
