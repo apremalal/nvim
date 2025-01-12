@@ -1,16 +1,17 @@
 return {
 	{
-		"akinsho/flutter-tools.nvim",
+		"nvim-flutter/flutter-tools.nvim",
 		lazy = false,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"stevearc/dressing.nvim", -- optional for vim.ui.select
+			"saghen/blink.cmp",
 		},
 		config = function()
-			local capabilities = require("blink.cmp").get_lsp_capabilities()
-			local lspconfig = require("lspconfig")
-
-			lspconfig["dartls"].setup({ capabilities = capabilities })
+			-- local capabilities = require("blink.cmp").get_lsp_capabilities()
+			-- local lspconfig = require("lspconfig")
+			--
+			-- lspconfig["dartls"].setup({ capabilities = capabilities })
 			require("flutter-tools").setup({
 				widget_guides = {
 					enabled = true,
@@ -31,6 +32,7 @@ return {
 						completeFunctionCalls = true,
 						renameFilesWithClasses = "prompt", -- "always"
 						enableSnippets = true,
+						enableSdkFormatter = true,
 						updateImportsOnRename = true, -- Whether to update imports and other directives when files are renamed. Required for `FlutterRename` command.
 					},
 				},

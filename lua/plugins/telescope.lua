@@ -1,7 +1,11 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		dependencies = { "nvim-lua/plenary.nvim", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope-media-files.nvim",
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		},
 		config = function()
 			local builtin = require("telescope.builtin")
 			vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
@@ -28,6 +32,13 @@ return {
 						require("telescope.themes").get_dropdown({}),
 					},
 					fzf = {},
+					media_files = {
+						-- filetypes whitelist
+						-- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+						filetypes = { "png", "webp", "jpg", "jpeg" },
+						-- find command (defaults to `fd`)
+						find_cmd = "rg",
+					},
 				},
 				pickers = {
 					find_files = {
@@ -39,6 +50,7 @@ return {
 			-- load_extension, somewhere after setup function:
 			require("telescope").load_extension("ui-select")
 			require("telescope").load_extension("fzf")
+			require("telescope").load_extension("media_files")
 		end,
 	},
 }
