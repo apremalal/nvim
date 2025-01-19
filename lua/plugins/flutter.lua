@@ -8,10 +8,10 @@ return {
 			"saghen/blink.cmp",
 		},
 		config = function()
-			-- local capabilities = require("blink.cmp").get_lsp_capabilities()
-			-- local lspconfig = require("lspconfig")
-			--
-			-- lspconfig["dartls"].setup({ capabilities = capabilities })
+			local capabilities = require("blink.cmp").get_lsp_capabilities()
+			local lspconfig = require("lspconfig")
+			lspconfig["dartls"].setup({ capabilities = capabilities })
+
 			require("flutter-tools").setup({
 				widget_guides = {
 					enabled = true,

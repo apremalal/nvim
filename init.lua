@@ -6,6 +6,7 @@ vim.cmd("set nu")
 vim.cmd("set relativenumber")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+print(vim.fn.stdpath("config"))
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
