@@ -1,0 +1,13 @@
+{
+  "name": "dart snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "dart", 
+        "path": "./dart.json" 
+
+      }
+    ]
+  }
+}
+
