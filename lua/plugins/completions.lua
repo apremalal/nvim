@@ -6,25 +6,6 @@ return {
 			require("nvim-autopairs").setup({})
 		end,
 	},
-	-- {
-	-- 	"L3MON4D3/LuaSnip",
-	-- 	-- follow latest release
-	-- 	version = "v2.*", -- Use the latest major release
-	-- 	-- install jsregexp (optional)
-	-- 	build = "make install_jsregexp",
-	-- 	event = "InsertEnter",
-	-- 	dependencies = { "rafamadriz/friendly-snippets" },
-	-- 	config = function()
-	-- 		-- Load VSCode-style snippets
-	-- 		require("luasnip.loaders.from_vscode").lazy_load()
-	-- 		require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/snippets" } })
-	-- 		-- Optional: Configure LuaSnip
-	-- 		require("luasnip").config.set_config({
-	-- 			history = true,
-	-- 			updateevents = "TextChanged,TextChangedI",
-	-- 		})
-	-- 	end,
-	-- },
 	{
 		"github/copilot.vim",
 		event = "InsertEnter",

@@ -29,7 +29,20 @@ return {
 			require("telescope").setup({
 				extensions = {
 					["ui-select"] = {
-						require("telescope.themes").get_dropdown({}),
+						require("telescope.themes").get_dropdown({
+							previewer = false,
+							initial_mode = "normal",
+							sorting_strategy = "ascending",
+							layout_strategy = "horizontal",
+
+							layout_config = {
+								horizontal = {
+									width = 0.3,
+									height = 0.4,
+									preview_width = 0.3,
+								},
+							},
+						}),
 					},
 					fzf = {},
 					media_files = {
@@ -41,8 +54,18 @@ return {
 					},
 				},
 				pickers = {
+					lsp_code_actions = {
+						theme = "cursor",
+					},
 					find_files = {
 						--						theme = "ivy",
+					},
+				},
+				defaults = {
+					sorting_strategy = "ascending",
+					layout_config = {
+						prompt_position = "top",
+						width = 0.3,
 					},
 				},
 			})

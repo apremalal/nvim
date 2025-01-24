@@ -48,7 +48,20 @@ vim.opt.inccommand = "split"
 
 -- Show which line your cursor is on
 vim.opt.cursorline = true
-vim.opt.cursorcolumn = true
+vim.opt.cursorcolumn = false
+
+-- auto write all
+vim.opt.autowriteall = true
+
+vim.filetype.add({
+	extension = {
+		arb = "json",
+	},
+})
+
+vim.keymap.set("n", "<Leader>d", function()
+	vim.diagnostic.open_float(nil, { scope = "line" })
+end, { desc = "Show line diagnostics" })
 
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to diagnostic" })
