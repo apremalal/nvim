@@ -36,11 +36,7 @@ return {
 							layout_strategy = "horizontal",
 
 							layout_config = {
-								horizontal = {
-									width = 0.3,
-									height = 0.4,
-									preview_width = 0.3,
-								},
+								horizontal = {},
 							},
 						}),
 					},
@@ -65,7 +61,6 @@ return {
 					sorting_strategy = "ascending",
 					layout_config = {
 						prompt_position = "top",
-						width = 0.3,
 					},
 				},
 			})
