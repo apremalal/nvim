@@ -52,7 +52,8 @@ return {
 						theme = "cursor",
 					},
 					find_files = {
-						--						theme = "ivy",
+						no_ignore = true,
+						hidden = true,
 					},
 				},
 				defaults = {
