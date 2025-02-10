@@ -13,7 +13,6 @@ return {
 					"javascript",
 					"html",
 					"python",
-					"dart",
 				},
 				auto_install = true,
 				highlight = { enable = true },

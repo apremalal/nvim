@@ -51,6 +51,7 @@ vim.opt.cursorcolumn = false
 
 -- auto write all
 vim.opt.autowriteall = true
+vim.opt.autoread = true
 
 vim.filetype.add({
 	extension = {
