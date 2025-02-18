@@ -49,7 +49,6 @@ vim.opt.inccommand = "split"
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = false
 
--- auto write all
 vim.opt.autowriteall = true
 vim.opt.autoread = true
 
@@ -81,6 +80,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	callback = function()
 		vim.highlight.on_yank()
 	end,
+})
+
+-- Check if the file changed on disk
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
+	pattern = "*",
+	command = "checktime",
 })
 
 require("lazy").setup("plugins")

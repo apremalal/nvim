@@ -13,6 +13,7 @@ return {
 					"javascript",
 					"html",
 					"python",
+					"proto",
 				},
 				auto_install = true,
 				highlight = { enable = true },
