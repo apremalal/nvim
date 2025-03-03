@@ -52,6 +52,14 @@ vim.opt.cursorcolumn = false
 vim.opt.autowriteall = true
 vim.opt.autoread = true
 
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+vim.opt.termguicolors = true
+vim.opt.guicursor = "n-v-c:block-blinkwait500-blinkoff400-blinkon250,"
+	.. "i-ci:ver25-blinkwait500-blinkoff400-blinkon250,"
+	.. "r-cr-o:hor20-blinkwait500-blinkoff400-blinkon250"
+
 vim.filetype.add({
 	extension = {
 		arb = "json",
