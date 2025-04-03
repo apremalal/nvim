@@ -21,6 +21,12 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -97,3 +103,19 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
 })
 
 require("lazy").setup("plugins")
+
+local function get_python_path()
+	local python_path = vim.fn.system("pyenv which python"):gsub("%s+", "")
+	if vim.fn.filereadable(python_path) == 1 then
+		return python_path
+	end
+	return vim.fn.exepath("python") -- Fallback to system Python
+end
+
+require("lspconfig").pyright.setup({
+	settings = {
+		python = {
+			pythonPath = get_python_path(),
+		},
+	},
+})

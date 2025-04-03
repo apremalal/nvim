@@ -155,6 +155,12 @@ return {
 				end,
 			})
 
+			vim.diagnostic.config({
+				virtual_lines = {
+					current_line = true,
+				},
+			})
+
 			-- Change diagnostic symbols in the sign column (gutter)
 			-- if vim.g.have_nerd_font then
 			--   local signs = { ERROR = '', WARN = '', INFO = '', HINT = '' }
@@ -184,6 +190,19 @@ return {
 				-- gopls = {},
 				pyright = {},
 				protols = {},
+				eslint = {
+					settings = {
+						packageManager = "yarn",
+					},
+					---@diagnostic disable-next-line: unused-local
+					on_attach = function(client, bufnr)
+						vim.api.nvim_create_autocmd("BufWritePre", {
+							buffer = bufnr,
+							command = "EslintFixAll",
+						})
+					end,
+				},
+
 				-- rust_analyzer = {},
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 				--
