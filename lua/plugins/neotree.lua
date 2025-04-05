@@ -36,10 +36,9 @@ return {
 		config = function()
 			vim.keymap.set("n", "<C-n>", ":NvimTreeFocus <CR>", {})
 			require("nvim-tree").setup({
-				sync_root_with_cwd = true,
 				update_focused_file = {
 					enable = true,
-					update_cwd = true,
+					update_cwd = false,
 					ignore_list = {},
 				},
 				view = {
