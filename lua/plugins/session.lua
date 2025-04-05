@@ -26,7 +26,6 @@ return {
 			log_level = "warning",
 			auto_save = true,
 			auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-			auto_restore_last_session = false,
 			pre_save_cmds = {
 				close_neo_tree,
 			},
@@ -34,8 +33,9 @@ return {
 				open_neo_tree,
 			},
 			session_lens = {
-				load_on_setup = false,
+				load_on_setup = true,
 				buftypes_to_ignore = {},
+				load_on_setup = true,
 				theme_conf = { border = true },
 				previewer = false,
 			},
