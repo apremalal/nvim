@@ -119,3 +119,8 @@ require("lspconfig").pyright.setup({
 		},
 	},
 })
+
+vim.api.nvim_create_autocmd("VimResized", {
+	pattern = "*",
+	command = "wincmd =",
+})
