@@ -7,10 +7,6 @@ return {
 		end,
 	},
 	{
-		"github/copilot.vim",
-		event = "InsertEnter",
-	},
-	{
 		"saghen/blink.cmp",
 		version = "*", -- Use latest stable version
 		dependencies = {
@@ -29,7 +25,7 @@ return {
 				preset = "default",
 			},
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer" },
+				default = { "lsp", "path", "snippets", "buffer", "supermaven" },
 			},
 		},
 	},
