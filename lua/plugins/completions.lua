@@ -10,8 +10,20 @@ return {
 		"saghen/blink.cmp",
 		version = "*", -- Use latest stable version
 		dependencies = {
-			"L3MON4D3/LuaSnip",
-			version = "v2.3.0",
+			{
+				"L3MON4D3/LuaSnip",
+				version = "v2.3.0",
+			},
+			{
+				"supermaven-inc/supermaven-nvim",
+				opts = {
+					disable_inline_completion = true, -- disables inline completion for use with cmp
+					disable_keymaps = true, -- disables built in keymaps for more manual control
+				},
+			},
+			{
+				"huijiro/blink-cmp-supermaven",
+			},
 		},
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
@@ -25,7 +37,14 @@ return {
 				preset = "default",
 			},
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer", "supermaven" },
+				default = { "lsp", "path", "snippets", "buffer" },
+				providers = {
+					supermaven = {
+						name = "supermaven",
+						module = "blink-cmp-supermaven",
+						async = true,
+					},
+				},
 			},
 		},
 	},
