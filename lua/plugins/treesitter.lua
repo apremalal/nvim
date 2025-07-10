@@ -14,6 +14,8 @@ return {
 					"html",
 					"python",
 					"proto",
+					"typescript",
+					"tsx",
 				},
 				auto_install = true,
 				highlight = { enable = true },

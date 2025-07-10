@@ -112,12 +112,17 @@ local function get_python_path()
 	return vim.fn.exepath("python") -- Fallback to system Python
 end
 
+local capabilities = require("blink.cmp").get_lsp_capabilities()
+local lspconfig = require("lspconfig")
+lspconfig[""].setup({ capabilities = capabilities })
+
 require("lspconfig").pyright.setup({
 	settings = {
 		python = {
 			pythonPath = get_python_path(),
 		},
 	},
+	capabilities = capabilities,
 })
 
 vim.api.nvim_create_autocmd("VimResized", {
