@@ -179,10 +179,30 @@ return {
 			--  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
 			--  - settings (table): Override the default settings passed when initializing the server.
 			--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+			-- local function get_python_path()
+			-- 	local python_path = vim.fn.system("pyenv which python"):gsub("%s+", "")
+			-- 	if vim.fn.filereadable(python_path) == 1 then
+			-- 		return python_path
+			-- 	end
+			-- 	return vim.fn.exepath("python") -- Fallback to system Python
+			-- end
+			--
 			local servers = {
 				-- clangd = {},
 				-- gopls = {},
-				pyright = {},
+				-- pyright = {
+				-- 	settings = {
+				-- 		python = {
+				-- 			venvPath = "/Users/ap/.pyenv/versions",
+				-- 			venv = "dataworks",
+				-- 			analysis = {
+				-- 				autoSearchPaths = true,
+				-- 				useLibraryCodeForTypes = true,
+				-- 				autoImportCompletions = true,
+				-- 			},
+				-- 		},
+				-- 	},
+				-- },
 				protols = {},
 				eslint = {
 					settings = {

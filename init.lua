@@ -114,12 +114,18 @@ end
 
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 local lspconfig = require("lspconfig")
-lspconfig[""].setup({ capabilities = capabilities })
+lspconfig["pyright"].setup({ capabilities = capabilities })
 
 require("lspconfig").pyright.setup({
 	settings = {
 		python = {
-			pythonPath = get_python_path(),
+			analysis = {
+				autoSearchPaths = true,
+				autoImportCompletions = true,
+				diagnosticMode = "openFilesOnly",
+				-- diagnosticMode = "workspace",
+				-- useLibraryCodeForTypes = true,
+			},
 		},
 	},
 	capabilities = capabilities,
