@@ -4,6 +4,7 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-media-files.nvim",
+			"debugloop/telescope-undo.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
 		config = function()
@@ -24,8 +25,16 @@ return {
 					"bazel-testlogs",
 				},
 				find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
+				extensions = {
+					undo = {
+						use_delta = true,
+						side_by_side = false,
+					},
+				},
 			})
 			require("telescope").load_extension("fzf")
+			require("telescope").load_extension("undo")
+			vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
 			local builtin = require("telescope.builtin")
 			vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 			--  			vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
