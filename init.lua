@@ -114,11 +114,13 @@ end
 
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 local lspconfig = require("lspconfig")
-lspconfig["pyright"].setup({ capabilities = capabilities })
+lspconfig[""].setup({ capabilities = capabilities })
 
 require("lspconfig").pyright.setup({
 	settings = {
 		python = {
+			-- pythonPath = "/Users/ap/.pyenv/versions/dataworks",
+			pythonPath = "~.pyenv/versions/3.11.11/envs/dataworks/bin/python",
 			analysis = {
 				autoSearchPaths = true,
 				autoImportCompletions = true,
