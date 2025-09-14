@@ -5,9 +5,6 @@ return {
 		{ "<leader>wr", "<cmd>SessionSearch<CR>", desc = "Session search" },
 		{ "<leader>wa", "<cmd>SessionToggleAutoSave<CR>", desc = "Toggle autosave" },
 	},
-	---enables autocomplete for opts
-	---@module "auto-session"
-	---@type AutoSession.Config
 	config = function()
 		local function close_neo_tree()
 			-- local nvim_tree_api = require("nvim-tree.api")
@@ -35,16 +32,16 @@ return {
 			session_lens = {
 				load_on_setup = true,
 				buftypes_to_ignore = {},
-				load_on_setup = true,
 				theme_conf = { border = true },
 				previewer = false,
+				picker = "telescope", -- "telescope"|"snacks"|"fzf"|"select"|nil Pickers are detected automatically but you can also manually choose one. Falls back to vim.ui.select
+				mappings = {
+					delete_session = { "n", "<C-D>" },
+					alternate_session = { "n", "<C-S>" },
+					copy_session = { "n", "<C-Y>" },
+				},
 			},
-			vim.keymap.set(
-				"n",
-				"<leader>ls",
-				require("auto-session.session-lens").search_session,
-				{ noremap = true, silent = true }
-			),
 		})
+		vim.keymap.set("n", "<leader>ls", ":Telescope session-lens<CR>", {})
 	end,
 }
